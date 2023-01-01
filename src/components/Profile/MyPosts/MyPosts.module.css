@@ -1,7 +1,7 @@
-
 .posts {
-    color: blue;
+    margin-top: 10px;
 }
 
-
-/*c - content*/
+.postsBlock{
+    padding: 10px;
+}
