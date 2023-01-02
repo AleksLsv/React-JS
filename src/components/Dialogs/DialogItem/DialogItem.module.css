@@ -1,0 +1,12 @@
+.dialog {
+    color: indigo;
+    text-decoration: none;
+
+}
+
+.active{
+   color: fuchsia;
+    text-decoration: none;
+}
+
+
