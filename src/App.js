@@ -4,8 +4,8 @@ import Header from "./components/Header/Header";
 import NavBar from "./components/NavBar/NavBar";
 import Profile from "./components/Profile/Profile";
 import Dialogs from "./components/Dialogs/Dialogs";
-import s from "./components/NavBar/NavBar.module.css";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
+
 
 
 function App(props) {
@@ -16,8 +16,8 @@ function App(props) {
         <NavBar />
         <div className='app-wrapper-content'>
             <Routes>
-                <Route path="/profile" element={<Profile/>}/>
-                <Route path="/dialogs/*" element={<Dialogs/>}/>
+                <Route path="/profile" element= {<Profile posts = {props.posts} />}/>
+                <Route path="/dialogs/*" element={<Dialogs dialogs = {props.dialogs} messages = {props.messages} />}/>
             </Routes>
 
         </div>
