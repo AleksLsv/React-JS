@@ -4,21 +4,24 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store from "./redux/redux-store";
+import StoreContext from "./StoreContext";
 
-//addPost('SamuraiJS.com');
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 let rerenderEntireTree = (state) => {
     root.render(
         <React.StrictMode>
-            <App state={state} dispatch={store.dispatch.bind(store)} store = {store}/>
+            <StoreContext.Provider value={store}>
+                <App />
+            </StoreContext.Provider>
         </React.StrictMode>
-    );
+    )
+    ;
 }
 
 rerenderEntireTree(store.getState());
 
-store.subscribe(()=> {
+store.subscribe(() => {
     let state = store.getState();
     rerenderEntireTree(state);
 });
@@ -27,7 +30,6 @@ store.subscribe(()=> {
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
-
 
 
 // сделали callback, в функцию subscribe из state вставляем функцию перерисовки
