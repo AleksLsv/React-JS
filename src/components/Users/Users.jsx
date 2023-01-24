@@ -4,6 +4,9 @@ import userPhoto from "../../assets/images/user.jpg";
 import {NavLink} from "react-router-dom";
 import axios from "axios";
 
+
+const API_KEY = 'c2439e13-d42c-40ba-a7fc-ee3b1edbe52d';
+
 let Users = (props) => {
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
     let pagesCount2;
@@ -45,7 +48,7 @@ let Users = (props) => {
                                 axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {
                                     withCredentials: true,
                                     headers: {
-                                        'API-KEY': 'c2439e13-d42c-40ba-a7fc-ee3b1edbe52d'
+                                        'API-KEY': API_KEY
                                     }
                                 })
                                     .then(response => {
@@ -60,7 +63,7 @@ let Users = (props) => {
                                 axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
                                     withCredentials: true,
                                     headers: {
-                                        'API-KEY': 'c2439e13-d42c-40ba-a7fc-ee3b1edbe52d'
+                                        'API-KEY': API_KEY
                                     }
                                 })
                                     .then(response => {
