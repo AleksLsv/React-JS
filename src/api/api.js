@@ -17,17 +17,17 @@ export const userAPI = {
                 return response.data
             });
     },
-    deleteUser(id) {
+    unfollow(id) {
         return instance.delete(`follow/${id}`)
             .then(response => {
                 return response.data
             });
     },
-    postUser(id) {
-        return instance.post(`follow/${id}`, {})
+    follow(id) {
+        return instance.post(`follow/${id}`)
             .then(response => {
                 return response.data
             });
-    },
+    }
 }
 
