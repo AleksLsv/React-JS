@@ -8,6 +8,8 @@ import {
 } from '../../redux/users-reducer';
 import Users from './Users';
 import Preloader from "../common/Preloader/Preloader";
+import {withAuthRedirect} from "../../hoc/withAuthRedirect";
+
 //import {userAPI} from "../../api/api";
 
 
@@ -46,7 +48,7 @@ class UsersContainer extends React.Component {
                    users={this.props.users}
                    follow={this.props.follow}
                    unfollow={this.props.unfollow}
-                   /*toggleFollowingProgress={this.props.toggleFollowingProgress}*/
+                /*toggleFollowingProgress={this.props.toggleFollowingProgress}*/
                    followingInProgress={this.props.followingInProgress}
             />
         </>
@@ -94,7 +96,17 @@ export default connect(mapStateToProps, {
     toggleFollowingProgress, getUsers: getUsersThunkCreator
 })(UsersContainer);*/
 
+
+export default withAuthRedirect(connect(mapStateToProps, {
+    follow, unfollow, setCurrentPage,
+    toggleFollowingProgress, getUsers
+})(UsersContainer));
+
+
+/*
+let withRedirect = withAuthRedirect(UsersContainer)
+
 export default connect(mapStateToProps, {
     follow, unfollow, setCurrentPage,
     toggleFollowingProgress, getUsers
-})(UsersContainer);
+})(withRedirect);*/
