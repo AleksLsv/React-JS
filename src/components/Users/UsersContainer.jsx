@@ -9,6 +9,8 @@ import {
 import Users from './Users';
 import Preloader from "../common/Preloader/Preloader";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
+import {compose} from "redux";
+//import Dialogs from "../Dialogs/Dialogs";
 
 //import {userAPI} from "../../api/api";
 
@@ -97,10 +99,19 @@ export default connect(mapStateToProps, {
 })(UsersContainer);*/
 
 
-export default withAuthRedirect(connect(mapStateToProps, {
+export default compose(
+    connect(mapStateToProps, {
+        follow, unfollow, setCurrentPage,
+        toggleFollowingProgress, getUsers
+    }),
+    withAuthRedirect
+)(UsersContainer)
+
+
+/*export default withAuthRedirect(connect(mapStateToProps, {
     follow, unfollow, setCurrentPage,
     toggleFollowingProgress, getUsers
-})(UsersContainer));
+})(UsersContainer));*/
 
 
 /*
