@@ -15,7 +15,7 @@ function ProfileInfo(props) {
             </div>*/}
             <div className={s.descriptionBlock}>
                 <img src={props.profile.photos.large}/>
-                <ProfileStatus/>
+                <ProfileStatus status = {"Hello my friends"}/>
             </div>
 
         </div>
