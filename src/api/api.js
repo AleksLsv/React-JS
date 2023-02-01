@@ -29,8 +29,23 @@ export const userAPI = {
                 return response.data
             });
     },
-    getProfile(id) {
-        return instance.get(`/profile/${id}`)
+    getProfile(userId) {
+        console.warn('Obsolete method. Please profileAPI object.');
+        return profileAPI.getProfile(userId)
+    }
+}
+
+
+export const profileAPI = {
+    getProfile(userId) {
+        return instance.get(`/profile/${userId}`)
+    },
+    getStatus(userId) {
+        return instance.get(`profile/status/${userId}`)
+    },
+    updateStatus(userId) {
+        // eslint-disable-next-line no-restricted-globals
+        return instance.put(`profile/status`, {status: status})
     }
 }
 
