@@ -25,7 +25,7 @@ function MyPosts(props) {
 
     let postsElements = props.posts.map(p => <Post message={p.message} likesCount={p.likesCount}/>);
 
-    let newPostElement = React.createRef();
+ //   let newPostElement = React.createRef();
 
     function onAddPost(values) {
         props.addPost(values.newPostText);
