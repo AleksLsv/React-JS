@@ -3,7 +3,8 @@ import s from './Dialogs.module.css'
 import Message from "./Message/Message";
 import DialogItem from "./DialogItem/DialogItem";
 import {Navigate} from "react-router-dom";
-import {Field, reduxForm} from "redux-form";
+//import {Field, reduxForm} from "redux-form";
+import AddMessageForm from "./AddMessageForm/AddMessageForm";
 
 
 function Dialogs(props) {
@@ -45,14 +46,14 @@ function Dialogs(props) {
 
                 <div>  {messagesElements} </div>
 
-                <AddMessageFormRedux onSubmit ={addNewMessage}/>
+                <AddMessageForm onSubmit ={addNewMessage}/>
 
             </div>
         </div>
     );
 }
 
-const AddMessageForm = (props) => {
+/*const AddMessageForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
             <div>
@@ -63,6 +64,6 @@ const AddMessageForm = (props) => {
     )
 }
 
-const AddMessageFormRedux = reduxForm({form: "dialogAddMessageForm"})(AddMessageForm);
+const AddMessageFormRedux = reduxForm({form: "dialogAddMessageForm"})(AddMessageForm);*/
 
 export default Dialogs;
