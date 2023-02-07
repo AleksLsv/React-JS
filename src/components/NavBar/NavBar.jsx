@@ -1,8 +1,6 @@
 import React from "react";
 import s from './NavBar.module.css';
 import {NavLink} from "react-router-dom";
-//import classes from './NavBar.module.css';
-// s - classes
 
 
 function NavBar() {
