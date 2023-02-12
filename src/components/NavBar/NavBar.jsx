@@ -7,18 +7,14 @@ function NavBar() {
     let navDataIsActive = navData => navData.isActive ? s.active : s.item;
 
     let linksData = [
-        {url: 'profile', navBarItem: 'Profile'},
-        {url: 'dialogs', navBarItem: 'Messages'},
-        {url: 'users', navBarItem: 'Users'},
-        {url: 'news', navBarItem: 'News'},
-        {url: 'music', navBarItem: 'Music'},
-        {url: 'settings', navBarItem: 'Settings'}
+        'profile', 'messages', 'users', 'news', 'music', 'settings'
     ];
 
     let linkElements = linksData.map(el => {
         return (
             <div>
-                <NavLink to = {'/' + el.url}  className={navDataIsActive}> {el.navBarItem} </NavLink>
+                <NavLink to={'/' + el}
+                         className={navDataIsActive}> {el.replace(el[0], el[0].toUpperCase())} </NavLink>
             </div>
         )
     });
