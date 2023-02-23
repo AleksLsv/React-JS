@@ -8,17 +8,24 @@ import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import LoginPage from "./components/Login/Login";
 import {connect} from "react-redux";
-import {getAuthUserData} from "./redux/auth-reducer";
+import {initializeApp} from "./redux/app-reducer";
+import Preloader from "./components/common/Preloader/Preloader";
+import {compose} from "redux";
+import {withRouter} from "./hoc/HOCs";
 
 
 
 class App extends React.Component {
 
     componentDidMount() {
-        this.props.getAuthUserData();
+        this.props.initializeApp();
     }
 
     render() {
+        if(!this.props.initialized) {
+            return <Preloader/>
+        }
+
         return (
             <BrowserRouter>
                 <div className='app-wrapper'>
@@ -27,9 +34,9 @@ class App extends React.Component {
                     <div className='app-wrapper-content'>
                         <Routes>
                             <Route path="/profile/:userId?" element={<ProfileContainer/>}/>
-                            {/*
-                <Route path="/profile/*" element={<ProfileContainer />}/>
-*/}
+
+               {/* <Route path="/profile/*" element={<ProfileContainer />}/>*/}
+
                             <Route path="/messages/*" element={<DialogsContainer/>}/>
                             <Route path="/users" element={<UsersContainer/>}/>
                             <Route path="/login" element={<LoginPage/>}/>
@@ -42,4 +49,11 @@ class App extends React.Component {
     }
 }
 
-export default connect(null, {getAuthUserData})(App);
+const mapStateToProps = (state) => ({
+    initialized: state.app.initialized
+})
+
+export default compose (
+    connect(mapStateToProps, {initializeApp}),
+    //withRouter
+) (App);

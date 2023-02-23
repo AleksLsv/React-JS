@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import {getStatus, getUserProfile, updateStatus} from "../../redux/profile-reducer";
 import {compose} from "redux";
 import {withRouter} from "../../hoc/HOCs";
+import Login from "../Login/Login";
 
 
 class ProfileContainer extends React.Component {
@@ -14,7 +15,17 @@ class ProfileContainer extends React.Component {
 
         if (!userId) {
             userId = this.props.authorizedUserId; // 27596 //2
+            //this.props.navigate('/login');
         }
+        if (!userId){
+            //this.props.navigate("/login");
+            userId = 27596;
+        }
+/*
+        if(!this.props.authorizedUserId && !userId){
+            return <Login/>
+        }*/
+
 
         this.props.getUserProfile(userId);
         this.props.getStatus(userId);
