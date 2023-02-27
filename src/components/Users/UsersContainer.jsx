@@ -8,7 +8,7 @@ import {
 } from '../../redux/users-reducer';
 import Users from './Users';
 import Preloader from "../common/Preloader/Preloader";
-import {withAuthRedirect, withRouter} from "../../hoc/HOCs";
+//import {withAuthRedirect, withRouter} from "../../hoc/HOCs";
 import {compose} from "redux";
 import {
     getCurrentPage,
@@ -69,7 +69,7 @@ export default compose(
         follow, unfollow, setCurrentPage,
         toggleFollowingProgress, getUsers: requestUsers
     }),
-   // withRouter,
+   //withRouter,
    // withAuthRedirect,
 )(UsersContainer)
 

@@ -19,7 +19,7 @@ class ProfileContainer extends React.Component {
         }
         if (!userId){
             //this.props.navigate("/login");
-            userId = 27596;
+            userId = 1079//27596;
         }
 /*
         if(!this.props.authorizedUserId && !userId){
