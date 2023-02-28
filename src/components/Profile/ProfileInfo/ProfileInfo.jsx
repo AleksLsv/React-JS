@@ -4,19 +4,15 @@ import Preloader from "../../common/Preloader/Preloader";
 //import ProfileStatus from "./ProfileStatus";
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
-function ProfileInfo(props) {
-    if (!props.profile) {
+function ProfileInfo({profile, status, updateStatus}) {
+    if (!profile) {
         return <Preloader/>
     }
     return (
         <div>
-            {/*<div className={s.content}>
-                <img
-                    src='https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg'/>
-            </div>*/}
             <div className={s.descriptionBlock}>
-                <img src={props.profile.photos.large}/>
-                <ProfileStatusWithHooks status = {props.status} updateStatus = {props.updateStatus}/>
+                <img src={profile.photos.large}/>
+                <ProfileStatusWithHooks status = {status} updateStatus = {updateStatus}/>
             </div>
 
         </div>

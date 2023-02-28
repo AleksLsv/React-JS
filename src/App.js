@@ -1,7 +1,7 @@
 import React, {lazy, Suspense} from "react";
 import './App.css';
 import NavBar from "./components/NavBar/NavBar";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import LoginPage from "./components/Login/Login";
@@ -9,12 +9,11 @@ import {connect} from "react-redux";
 import {initializeApp} from "./redux/app-reducer";
 import Preloader from "./components/common/Preloader/Preloader";
 import {compose} from "redux";
-//import {withRouter} from "./hoc/HOCs";
+import {withRouter} from "./hoc/HOCs";
 //import DialogsContainer from "./components/Dialogs/DialogsContainer";
 //import UsersContainer from "./components/Users/UsersContainer";
 const DialogsContainer = lazy(() => import("./components/Dialogs/DialogsContainer"));
 const UsersContainer = lazy(() => import("./components/Users/UsersContainer"));
-
 
 
 class App extends React.Component {
@@ -27,14 +26,12 @@ class App extends React.Component {
         if (!this.props.initialized) {
             return <Preloader/>
         }
-
         return (
-            <BrowserRouter>
-                <div className='app-wrapper'>
-                    <HeaderContainer/>
-                    <NavBar/>
-                    <div className='app-wrapper-content'>
-                        <Suspense fallback={<Preloader />}>
+            <div className='app-wrapper'>
+                <HeaderContainer/>
+                <NavBar/>
+                <div className='app-wrapper-content'>
+                    <Suspense fallback={<Preloader/>}>
                         <Routes>
                             <Route path="/profile/:userId?" element={<ProfileContainer/>}/>
 
@@ -44,11 +41,9 @@ class App extends React.Component {
                             <Route path="/users" element={<UsersContainer/>}/>
                             <Route path="/login" element={<LoginPage/>}/>
                         </Routes>
-                        </Suspense>
-
-                    </div>
+                    </Suspense>
                 </div>
-            </BrowserRouter>
+            </div>
         );
     }
 }
@@ -59,5 +54,5 @@ const mapStateToProps = (state) => ({
 
 export default compose(
     connect(mapStateToProps, {initializeApp}),
-    //withRouter
+    withRouter
 )(App);
