@@ -9,7 +9,7 @@ import {reducer as formReducer} from "redux-form";
 import appReducer from "./app-reducer";
 
 let reducers = combineReducers({
-    profilePage: profileReducer,  /*ключ: значение, за profilePage отвечает profileReducer*/
+    profilePage: profileReducer,
     dialogsPage: dialogsReducer,
     sidebar: sidebarReducer,
     usersPage: usersReducer,
@@ -19,7 +19,7 @@ let reducers = combineReducers({
 });
 
 
-let store = legacy_createStore(reducers, applyMiddleware(thunkMiddleware)); // создаем store
+let store = legacy_createStore(reducers, applyMiddleware(thunkMiddleware));
 
 window.store = store;
 

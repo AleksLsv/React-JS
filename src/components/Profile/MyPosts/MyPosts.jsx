@@ -28,16 +28,10 @@ const MyPosts = React.memo(props => {
 
     let postsElements = props.posts.map(p => <Post message={p.message} likesCount={p.likesCount}/>).reverse();
 
- //   let newPostElement = React.createRef();
 
     function onAddPost(values) {
         props.addPost(values.newPostText);
     }
-
-/*    function onPostChange() {
-        let text = newPostElement.current.value;
-        props.updateNewPostText(text);
-    }*/
 
     return (
         <div className={s.postsBlock}>
@@ -49,7 +43,6 @@ const MyPosts = React.memo(props => {
         </div>
     );
 });
-
 
 
 export default MyPosts;

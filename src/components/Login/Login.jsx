@@ -35,8 +35,8 @@ const LoginForm = (props) => {
 }
 
 const LoginReduxForm = reduxForm({
-    form: 'login' // уникальное имя формы
-})(LoginForm)  // создаем оболочку (контейнер) вокруг LoginForm
+    form: 'login'
+})(LoginForm)
 
 
 const Login = (props) => {
