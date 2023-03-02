@@ -1,10 +1,11 @@
 import React from "react";
 import Profile from "./Profile";
 import {connect} from "react-redux";
-import {getStatus, getUserProfile, savePhoto, updateStatus} from "../../redux/profile-reducer";
+import {getStatus, getUserProfile, savePhoto, saveProfile, updateStatus} from "../../redux/profile-reducer";
 import {compose} from "redux";
 import {withAuthRedirect, withRouter} from "../../hoc/HOCs";
 import Login from "../Login/Login";
+import {Navigate} from "react-router-dom";
 
 
 class ProfileContainer extends React.Component {
@@ -18,7 +19,8 @@ class ProfileContainer extends React.Component {
         }
         if (!userId) {
             //this.props.navigate("/login");
-            userId = 27596//1079//;
+            userId = 2//27596//1079//;
+            //return <Navigate to={"/login"}></Navigate>
         }
         /*
                 if(!this.props.authorizedUserId && !userId){
@@ -63,7 +65,7 @@ let mapStateToProps = (state) => ({
 
 
 export default compose(
-    connect(mapStateToProps, {getUserProfile, getStatus, updateStatus, savePhoto}),
+    connect(mapStateToProps, {getUserProfile, getStatus, updateStatus, savePhoto, saveProfile}),
     withRouter
     //withAuthRedirect
 )(ProfileContainer)
