@@ -46,6 +46,15 @@ export const profileAPI = {
     updateStatus(userId) {
         // eslint-disable-next-line no-restricted-globals
         return instance.put(`profile/status`, {status: status})
+    },
+    savePhoto(photoFile) {
+        const formData = new FormData();
+        formData.append("image",photoFile);
+        return instance.put(`profile/photo`, formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        });
     }
 }
 
