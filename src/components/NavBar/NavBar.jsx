@@ -12,7 +12,7 @@ function NavBar() {
 
     let linkElements = linksData.map(el => {
         return (
-            <div>
+            <div key={el}>
                 <NavLink to={'/' + el}
                          className={navDataIsActive}> {el.replace(el[0], el[0].toUpperCase())} </NavLink>
             </div>
