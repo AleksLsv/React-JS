@@ -37,7 +37,7 @@ export const getCaptchaUrlSuccess = (captchaUrl) => ({
 
 
 export const getAuthUserData = () => (dispatch) => {
-    authAPI.me().then(response => {
+    return authAPI.me().then(response => {
         if (response.data.resultCode === 0) {
             let {id, email, login} = response.data.data;
             dispatch(setAuthUserData(id, email, login, true));
@@ -46,7 +46,8 @@ export const getAuthUserData = () => (dispatch) => {
 }
 
 export const login = (email, password, rememberMe, captcha) => (dispatch) => {
-    authAPI.login(email, password, rememberMe, captcha).then(response => {
+    authAPI.login(email, password, rememberMe, captcha)
+        .then(response => {
         if (response.data.resultCode === 0) {
             // success, get auth data
             dispatch(getAuthUserData())

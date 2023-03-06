@@ -43,7 +43,7 @@ export const profileAPI = {
     getStatus(userId) {
         return instance.get(`profile/status/${userId}`)
     },
-    updateStatus(userId) {
+    updateStatus(status) {
         // eslint-disable-next-line no-restricted-globals
         return instance.put(`profile/status`, {status: status})
     },
