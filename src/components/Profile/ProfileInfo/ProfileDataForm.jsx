@@ -22,7 +22,7 @@ const ProfileDataForm = ({handleSubmit, profile, error}) => {
 
         <div>
             <b>My professional skills:</b>
-            {createField("My professional skills", "lokingForAJobDescription", [], Textarea)}
+            {createField("My professional skills", "lookingForAJobDescription", [], Textarea)}
         </div>
 
 
