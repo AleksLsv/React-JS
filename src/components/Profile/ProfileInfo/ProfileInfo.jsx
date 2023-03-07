@@ -41,7 +41,7 @@ return (
                 }} profile={profile} isOwner={isOwner}/>}
 
 
-            <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
+            <ProfileStatusWithHooks status={status} updateStatus={updateStatus} isOwner={isOwner}/>
         </div>
     </div>
 );

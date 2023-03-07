@@ -18,10 +18,9 @@ class ProfileContainer extends React.Component {
         }
         if (!userId) {
             this.props.router.navigateTo('/login');
+            userId = 27596;
             //return <Navigate to={'/login'}/>
-            //return redirect("/login")
-
-            //userId = 3//27596//1079//;
+            //return redirect("/login");
         }
                /* if(!this.props.authorizedUserId && !userId){
                     return <Navigate to={'/login'}/>
@@ -46,7 +45,8 @@ class ProfileContainer extends React.Component {
     render() {
         return (
             <Profile {...this.props}
-                     isOwner={!this.props.router.params.userId}
+                     //isOwner={!this.props.router.params.userId}
+                     isOwner={!!this.props.authorizedUserId && !this.props.router.params.userId}
                      profile={this.props.profile}
                      status={this.props.status}
                      updateStatus={this.props.updateStatus}
